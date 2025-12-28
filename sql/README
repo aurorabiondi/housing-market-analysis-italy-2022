@@ -1,62 +1,73 @@
-# Analisi del mercato immobiliare con SQL
+# Analisi del mercato immobiliare italiano con SQL (2022)
 
-Questa cartella contiene la parte di analisi svolta in *SQL* sul dataset immobiliare italiano del 2022.
+Questa cartella contiene la parte di analisi svolta in **SQL** sul mercato immobiliare italiano, a partire da un dataset di annunci del 2022.
 
-Dopo aver completato la pulizia dei dati e l’analisi esplorativa in Python (Pandas), il dataset pulito è stato importato in un database *SQLite* per effettuare analisi strutturate tramite query SQL.
-
-L’obiettivo di questa fase è verificare e consolidare alcuni insight emersi durante l’EDA, lavorando in un contesto tipico di database relazionale.
+Il dataset utilizzato in questa fase deriva da una precedente attività di pulizia e analisi esplorativa effettuata in **Python (Pandas)**.  
+In SQL vengono quindi utilizzati **dati già puliti e strutturati**, con l’obiettivo di consolidare e approfondire alcuni insight attraverso query analitiche.
 
 ---
 
-## Database e struttura
+## Database utilizzato
 
-Il database è basato su una tabella principale chiamata housing_clean, che contiene gli annunci immobiliari già ripuliti e normalizzati.
+- **Database:** SQLite  
+- **Tabella principale:** `housing_clean`
 
-Le colonne principali includono:
+La tabella contiene annunci immobiliari già normalizzati, con informazioni come:
 - località
 - prezzo dell’immobile
 - metri quadri
 - numero di stanze e bagni
 - anno di costruzione
-- prezzo al metro quadro (price_per_sqm)
+- prezzo al metro quadro (`price_per_sqm`)
 
-La fase di pulizia e preparazione dei dati è stata svolta interamente in Python; in SQL vengono utilizzati solo dati già pronti per l’analisi.
+La fase di pulizia dei dati non viene svolta in SQL, ma è stata gestita interamente in Python.
 
 ---
 
-## Query SQL
+## Obiettivo dell’analisi SQL
 
-Il file contiene *tre query principali*, ciascuna commentata per spiegare lo scopo dell’analisi.
+Questa fase del progetto ha lo scopo di:
+- replicare alcune analisi chiave svolte durante l’EDA
+- confrontare i mercati immobiliari delle principali città italiane
+- utilizzare SQL in un contesto database-oriented, tipico di ambienti aziendali
+- ottenere risultati facilmente riutilizzabili per report e dashboard
+
+---
+
+## Query implementate
+
+Il file contiene **tre query principali**, ciascuna preceduta da commenti descrittivi.
 
 ### 1. Prezzo medio e prezzo al metro quadro per città
-Questa query calcola:
-- il prezzo medio
-- la metratura media
-- il prezzo medio al m²
+La prima query calcola, per ciascuna città:
+- numero di annunci
+- prezzo medio
+- metratura media
+- prezzo medio al metro quadro
 
-per ciascuna città, considerando solo le località con almeno 100 annunci, in modo da garantire una maggiore affidabilità dei risultati.
-
----
-
-### 2. Confronto tra città in base al prezzo al m²
-La seconda analisi ordina le città in base al prezzo medio al metro quadro, permettendo di individuare i mercati immobiliari più costosi.
-
-I risultati confermano le differenze territoriali emerse nella fase di EDA, con città come Bolzano, Firenze e Milano tra le più costose.
+Vengono considerate solo le città con almeno **100 annunci**, per garantire una maggiore affidabilità dei risultati.  
+Questa analisi permette di confrontare in modo diretto i principali mercati immobiliari italiani.
 
 ---
 
-### 3. Città più convenienti in termini di prezzo al m²
-L’ultima query si concentra sull’individuazione delle città con un prezzo medio al m² più contenuto, a parità di un numero significativo di annunci.
+### 2. Analisi per area geografica (Nord, Centro, Sud)
+La seconda query introduce una classificazione geografica delle città (Nord, Centro, Sud) tramite una logica `CASE`.
 
-Questa analisi è utile per confrontare il rapporto tra prezzo e metratura e individuare mercati potenzialmente più accessibili.
+L’obiettivo è confrontare il prezzo medio al metro quadro tra diverse aree del Paese ed evidenziare eventuali differenze strutturali nel mercato immobiliare italiano.
+
+---
+
+### 3. Top 10 città per prezzo medio al metro quadro
+L’ultima query seleziona le **10 città con il prezzo medio al m² più elevato**, considerando solo le località con un numero significativo di annunci.
+
+Questa analisi consente di individuare i mercati immobiliari più costosi e confrontarli in termini di prezzo, metratura media e numerosità degli annunci.
 
 ---
 
 ## Considerazioni finali
 
-La fase di analisi SQL ha permesso di:
-- tradurre l’analisi esplorativa in query ripetibili e strutturate
-- lavorare su dati già puliti in un contesto database-oriented
-- preparare una base solida per eventuali visualizzazioni e analisi future
+L’analisi SQL conferma e rafforza gli insight emersi durante la fase di analisi esplorativa in Python:
 
-Questa parte del progetto rappresenta un passaggio intermedio tra l’analisi in Python e strumenti di Business Intelligence.
+- il prezzo al metro quadro è una metrica chiave per confrontare mercati diversi
+- esistono forti differenze territoriali tra le città italiane
+- il solo prezzo totale dell’immobile non è sufficiente per valutare il mercato
