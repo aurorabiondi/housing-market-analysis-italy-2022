@@ -84,19 +84,6 @@ Il dataset pulito è stato esportato e verrà utilizzato per:
 
 ---
 
-## Prossimi sviluppi
-###  **SQL (in arrivo)**
-- creazione schema SQLite  
-- import del dataset pulito  
-- query esplorative (aggregate, join, grouping)  
-- analisi avanzate (CTE, window functions)
-
-### **Power BI (in arrivo)**
-- report interattivi: confronto città, fasce di prezzo, distribuzioni  
-- KPI personalizzati (prezzo/metro quadro, variazioni)  
-- mappe geografiche
-
----
 
 ## Autrice
 **Aurora Biondi** – Data Analyst in formazione, con forte interesse per analisi esplorativa, business intelligence e visual analytics.  
