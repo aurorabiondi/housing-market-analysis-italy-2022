@@ -1,0 +1,62 @@
+# Analisi del mercato immobiliare con SQL
+
+Questa cartella contiene la parte di analisi svolta in *SQL* sul dataset immobiliare italiano del 2022.
+
+Dopo aver completato la pulizia dei dati e l’analisi esplorativa in Python (Pandas), il dataset pulito è stato importato in un database *SQLite* per effettuare analisi strutturate tramite query SQL.
+
+L’obiettivo di questa fase è verificare e consolidare alcuni insight emersi durante l’EDA, lavorando in un contesto tipico di database relazionale.
+
+---
+
+## Database e struttura
+
+Il database è basato su una tabella principale chiamata housing_clean, che contiene gli annunci immobiliari già ripuliti e normalizzati.
+
+Le colonne principali includono:
+- località
+- prezzo dell’immobile
+- metri quadri
+- numero di stanze e bagni
+- anno di costruzione
+- prezzo al metro quadro (price_per_sqm)
+
+La fase di pulizia e preparazione dei dati è stata svolta interamente in Python; in SQL vengono utilizzati solo dati già pronti per l’analisi.
+
+---
+
+## Query SQL
+
+Il file contiene *tre query principali*, ciascuna commentata per spiegare lo scopo dell’analisi.
+
+### 1. Prezzo medio e prezzo al metro quadro per città
+Questa query calcola:
+- il prezzo medio
+- la metratura media
+- il prezzo medio al m²
+
+per ciascuna città, considerando solo le località con almeno 100 annunci, in modo da garantire una maggiore affidabilità dei risultati.
+
+---
+
+### 2. Confronto tra città in base al prezzo al m²
+La seconda analisi ordina le città in base al prezzo medio al metro quadro, permettendo di individuare i mercati immobiliari più costosi.
+
+I risultati confermano le differenze territoriali emerse nella fase di EDA, con città come Bolzano, Firenze e Milano tra le più costose.
+
+---
+
+### 3. Città più convenienti in termini di prezzo al m²
+L’ultima query si concentra sull’individuazione delle città con un prezzo medio al m² più contenuto, a parità di un numero significativo di annunci.
+
+Questa analisi è utile per confrontare il rapporto tra prezzo e metratura e individuare mercati potenzialmente più accessibili.
+
+---
+
+## Considerazioni finali
+
+La fase di analisi SQL ha permesso di:
+- tradurre l’analisi esplorativa in query ripetibili e strutturate
+- lavorare su dati già puliti in un contesto database-oriented
+- preparare una base solida per eventuali visualizzazioni e analisi future
+
+Questa parte del progetto rappresenta un passaggio intermedio tra l’analisi in Python e strumenti di Business Intelligence.
