@@ -36,4 +36,4 @@ Per garantire l’affidabilità dei risultati, l’analisi è limitata alle citt
 - Visualizzazione limitata alle metriche realmente informative.
 - Dashboard pensata come supporto all’analisi e alla discussione, non come esercizio puramente estetico.
 
-Questo report Power BI rappresenta la sintesi finale del progetto, a valle delle attività di pulizia dati e analisi esplorativa in Python e delle analisi condotte in SQL.
+Questo report Power BI rappresenta la sintesi finale del progetto,dopo la pulizia dei dati e l’analisi esplorativa in Python, seguite dalle analisi in SQL.
